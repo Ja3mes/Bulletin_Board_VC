@@ -1,0 +1,18 @@
+<p>Please Log in</p>
+<mat-card>
+    <form (submit)="onLogin(loginForm)" class="login" name="login" #loginForm="ngForm">
+        <br>
+        <mat-form-field>
+            <input matInput type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" ngModel name="enteredEmail" placeholder="Email Adrress" required #enteredEmail="ngModel" />
+            <mat-error *ngIf="enteredEmail.invalid">{{enteredEmailError}}</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput type="password" pattern="^([a-zA-Z0-9@*#]{8,15})$" style="-webkit-text-security: cirlce;" ngModel name="enteredPassword" placeholder="Password" required #enteredPassword="ngModel" />
+            <mat-error *ngIf="enteredPassword.invalid">{{enteredPasswordError}}</mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button type="submit">Login</button>
+    </form>
+</mat-card>
+<hr>

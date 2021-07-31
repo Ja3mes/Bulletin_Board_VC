@@ -1,0 +1,27 @@
+<p>Create your post here please</p>
+<mat-card>
+    <form class="login" name="login" (submit)="onAddPost(uploadPost)" #uploadPost="ngForm">
+        <mat-form-field>
+            <input matInput type="text" ngModel name="enteredUserName" placeholder="User Name" required minlength="8" pattern="^[a-zA-Z0-9\s_-]+$" #enteredUserName="ngModel" />
+            <mat-error *ngIf="enteredUserName.invalid">{{enteredUserNameErr}}</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-
+]{2,4}$" ngModel name="enteredEmail" placeholder="Email Adrress" required #enteredEmail="ngModel" />
+            <mat-error *ngIf="enteredEmail.invalid">{{enteredEmailErr}}</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <textarea matInput ngModel name="enteredPost" ng-bind-html required placeholder="Post Content" maxlength="500" #enteredPost="ngModel"></textarea>
+            <mat-error *ngIf="enteredPost.invalid">{{enteredPostErr}}</mat-error>
+        </mat-form-field>
+        <br>
+        <p>This is the text you posted.</p>
+        <!--
+        <div [innerHtml]='output'></div>-->
+        <br>
+        <button mat-raised-button type="submit">Post</button>
+    </form>
+</mat-card>
+<hr>
